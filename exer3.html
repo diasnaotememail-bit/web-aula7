@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exer3 - Memória</title>
+    <style>
+        h1 {
+            color: lightgreen;
+        }
+        #saida {
+            font-weight: bold;
+            color: blue;
+        }
+    </style>
+    <script>
+    window.onload = inicio;
+
+ 
+    let memoria = null;
+
+    function inicio() {
+        document.getElementById('btn_mostrar').addEventListener('click', mostrando);
+        document.getElementById('btn_limpar').addEventListener('click', limpando);
+        document.getElementById('btn_retirar').addEventListener('click', retirando);
+        document.getElementById('btn_adicionar').addEventListener('click', adicionando);
+        document.getElementById('btn_guardar').addEventListener('click', guardando);
+    }
+
+
+    function mostrando() {
+        let campo = document.getElementById('numero');
+       console.log (memoria)
+        if (memoria === null) {
+            campo.value = "Nada";
+            
+        } else {
+      
+            campo.value = memoria;
+        }
+    }
+
+    function guardando() {
+        let valor = parseInt(document.getElementById('numero').value);
+        if (!isNaN(valor)) {
+            memoria = valor;
+       
+        }
+    }
+
+    function adicionando() {
+        let valor = parseInt(document.getElementById('numero').value);
+        if (!isNaN(valor) && memoria !== null) {
+            memoria += valor;
+        }
+    }
+
+    function retirando() {
+        let valor = parseInt(document.getElementById('numero').value);
+        if (!isNaN(valor) && memoria !== null) {
+            memoria -= valor;
+        }
+    }
+
+    function limpando() {
+        memoria = null;
+  
+    }
+</script>
+</head>
+
+<body>
+
+    <input type="text" id="numero" placeholder="Digite um número">
+    <p id="saida"></p>
+    <button id="btn_guardar">Guardar</button>
+    <button id="btn_adicionar">Adicionar</button>
+    <button id="btn_retirar">Retirar</button>
+    <button id="btn_mostrar">Mostrar</button>
+    <button id="btn_limpar">Limpar</button>
+</body>
+
+</html>
